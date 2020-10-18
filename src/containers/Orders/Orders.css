@@ -1,0 +1,10 @@
+.Orders {
+    margin: 20px auto;
+    display: block;
+}
+
+.Title {
+    text-align: center;
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 40px;
+}
