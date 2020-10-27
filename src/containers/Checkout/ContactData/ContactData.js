@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 import Button from '../../../componenets/UI/Button/Button';
 import classes from './ContactData.css';
@@ -168,9 +169,10 @@ class ContactData extends Component {
     if (this.state.loading) {
       form = <Spinner/>;
     }
+    console.log("[ContactData]", this.props);
     return (
         <div className={classes.ContactData}>
-          <h2> The total price is: {this.props.price}.00$.</h2>
+          <h2> The total price is: {parseFloat(this.props.price).toFixed(2)}$</h2>
           <h4> Enter your contact data </h4>
           {form}
         </div>
@@ -178,5 +180,12 @@ class ContactData extends Component {
   }
 }
 
-export default ContactData;
+const mapStateToProps = state => {
+  return {
+    ingredients: state.ingredients,
+    price: state.totalPrice
+  }
+}
+
+export default connect(mapStateToProps, null)(ContactData);
 

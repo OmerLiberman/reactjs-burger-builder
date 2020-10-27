@@ -4,6 +4,7 @@ import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 import classes from "./Burger.css";
 
 const burger = (props) => {
+    console.log("[Burger]", props);
     let transformedIng = Object.keys(props.ingredients).map(ingKey => {
         return [...Array(props.ingredients[ingKey])].map((_, ind) => {
             return <BurgerIngredient key={ingKey + ind} type={ingKey}/>
